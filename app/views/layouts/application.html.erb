@@ -8,9 +8,70 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# 以下のコードを追加 %>
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta name="csrf-token" content="/8vC8el2MqPi4hSZn0UdINaOz2XDWmqqReJXkAiM46N3vjUqcaY8y3HxFqhiERCf1L++p350Q+GMH+5fTRzAQg==" />
+        
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <%# ここまで %>
   </head>
-
+    
   <body>
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-left-nav">
+          <%= link_to image_tag("logo.png"), homes_index_path %>
+          <form action="https://presite-potepancamp-rails-02.herokuapp.com/rooms/search" accept-charset="UTF-8" method="get" >
+            <div class="header-sharch d-lg-inline-block d-none">
+              <input type="text" name="area" id="area" value="" class="form-control" placeholder="エリア">
+              <i class="fas fa-map-marker-alt">
+    
+              </i>
+            </div>
+            <div class="header-sharch d-lg-inline-block d-none">
+              <input type="text" name="keyword" id="keyword" value="" class="form-control" placeholder="キーワード">
+              <i class="fas fa-search">
+    
+              </i>
+            </div>
+            <input type="submit" name="commit" value="" class="d-none" data-disable-with="">
+          </form>
+        </div>
+        <div class="header-right-nav">
+          <% if user_signed_in? %>
+          <div class="nav-item">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= image_tag "default_icon.jpg", class: "host-icon" %>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">ルーム登録</a></li>
+                <li><a class="dropdown-item" href="#">予約済みルーム一覧</a></li>
+                <li><a class="dropdown-item" href="#">登録済みルーム一覧</a></li>
+                <li><a class="dropdown-item" href="#">設定</a></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+              </ul>
+            </div>
+          </div>
+          <% else %>
+          <div class="nav-item">
+            <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary my-2 mx-3" %>
+            <%= link_to "登録する", new_user_registration_path, class: "btn btn-secondary" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </header>
+    <div class="notifications">
+    <%if flash.notice%>
+     <p class="notice"><%= notice %></p>
+    <%end%>
+    </div>
     <%= yield %>
   </body>
 </html>
