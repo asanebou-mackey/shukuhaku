@@ -50,10 +50,10 @@
                 <%= image_tag "default_icon.jpg", class: "host-icon" %>
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">ルーム登録</a></li>
-                <li><a class="dropdown-item" href="#">予約済みルーム一覧</a></li>
+                <li><%= link_to "ルーム登録", new_room_path, class: "dropdown-item" %></li>
+                <li></li><%= link_to "予約済みルーム一覧", reservations_path, class: "dropdown-item" %></li>
                 <li><a class="dropdown-item" href="#">登録済みルーム一覧</a></li>
-                <li><a class="dropdown-item" href="#">設定</a></li>
+                <%= link_to "設定", users_path, class: "dropdown-item" %>
                 <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
               </ul>
             </div>

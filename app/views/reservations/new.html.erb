@@ -1,0 +1,36 @@
+<div class="container reservations-new">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="reservations-new-nav">
+                <h4 class="reservations-new-check-content">予約内容確認</h4>
+                <h5 class="price-icon"> <%= @room.price %> / 日</h5>
+                <div class="reservations-new-date-select">
+                    <div class="new_reservation" id="new_reservation" action="/reservations" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="9PynqHt/8QjeXekeQZsRMjndLta9vNLddk0Duux57afC9s6alJJPmvzy7bDlnIDaJftlDf9L3OgkLbbmg5W6og==">
+                        <input type="hidden" value="67" name="reservation[room_id]" id="reservation_room_id">
+                        <input type="hidden" value="21" name="reservation[user_id]" id="reservation_user_id">
+                        <label for="start_date">開始日</label>
+                        <p class="form-control mb-4"><%= @reservation.start %></p> <br>
+                        <label for="end_date">終了日</label>
+                        <p class="form-control mb-4"><%= @reservation.end %></p> <br>
+                        <h6 class="reservations-new-check-content">使用日数 : <%= @totaldays %> 日</h6>
+                        <h6 class="reservations-new-check-content">人数 : <%= @reservation.number %> 人</h6>
+                        <label for="total_amount">合計金額</label> <br>
+                        <p class="form-control mb-4"><%= @totalprice %></p>
+                        <p class="reservations-new-check-content">上記内容でよろしければ「予約を確定」を押してください</p>
+                        <%= form_with model: @reservation do |f| %>
+                            <%= f.hidden_field :user_id, value: current_user.id %>
+                            <%= f.hidden_field :room_id, value: @room.id %>
+                            <%= f.hidden_field :start %>
+                            <%= f.hidden_field :end %>
+                            <%= f.hidden_field :number %>
+                            <%= f.submit "予約を確定", class: "btn btn-primary form-control my-3" %>
+                        <% end %>
+                    </div>
+                    <%= link_to :back do %>
+                        <button class="btn btn-secondary form_control">ルーム詳細に戻る</button>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

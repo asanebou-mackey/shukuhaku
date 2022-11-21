@@ -1,0 +1,62 @@
+<div class="container-fiuld room-new">
+    <div class="row">
+        <div class="col-lg-2 room-nav room-nav-pc d-lg-block d-none">
+    <ul>
+        <li class="active"><a href="/rooms/new">基本情報</a></li>
+    </ul>
+</div>
+<div class="col-lg-2 room-nav room-nav-mobile d-lg-none">
+    <ul>
+        <li class="active"><a href="/rooms/new">基本情報</a></li>
+    </ul>
+</div>
+        <div class="col-lg-10 room-view">
+            <div class="room-view-box">
+                <%= form_with model: @room do |f| %> <%#class="new_room" %>
+                    <div class="update-content">
+                        <div class="row">
+                            <h5>ルーム情報登録</h5>
+                        </div>
+                    </div>
+                    <div class="update-content">
+                        <div class="row">
+                            <%= f.label :name ,"名前" %>
+                            <%= f.text_field :name, class: "form-control mb-4 col-md-9" %>
+                        </div>
+                    </div>
+                    <div class="update-content">
+                        <div class="row">
+                            <%= f.label :introduction ,"ルーム紹介" %>
+                            <%= f.text_area :introduce, class: "form-control mb-4 col-md-9" %>
+                        </div>
+                    </div>
+                    <div class="update-content">
+                        <div class="row">
+                            <%= f.label :name ,"料金" %>
+                            <%= f.text_field :price, class: "form-control mb-4 col-md-9" %>
+                        </div>
+                    </div>
+                    <div class="update-content">
+                        <div class="row">
+                            <%= f.label :name ,"住所" %>
+                            <%= f.text_field :address, class: "form-control mb-4 col-md-9" %>
+                        </div>
+                    </div>
+                    <div class="update-content">
+                        <div class="row">
+                            <%= f.label :image, "ルーム画像", class: "col-md-3 required-a" %>
+                            <%= f.file_field :image, class: "mb-4 col-md-9" %>
+                        </div>
+                    </div>
+                    <div class="update-content">
+                        <div class="row">
+                            <ul>
+                                <li><%= f.submit "登録", class: "col-md-2 btn btn-primary mx-3" %></li> <%# form_with引数のインスタンス(@room)が何も情報を持っていない場合、createアクションへ、 情報を持っている場合、updateアクションへ自動的に振り分けてくれます。例えば、newの場合は自動でcreateアクションに振り分けられる。 既に情報を持っているcreateの場合は自動でupdateアクションに振り分けられる。 %>
+                            </ul>
+                        </div>
+                    </div>
+                    <%= f.hidden_field :user_id, value: current_user.id %>
+                <% end %>
+        </div>
+    </div>
+</div>

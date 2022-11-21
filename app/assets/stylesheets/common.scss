@@ -200,7 +200,6 @@ body {
 }
 
 //ユーザー新規登録画面、ログイン画面のcss
-
 .device {
     padding-top: 36px;
     font-size: 16px;
@@ -244,5 +243,166 @@ body {
     margin-top: 30px;
     margin-bottom: 30px;
 }
-
 //ここまで新規登録画面、ログイン画面のcss
+
+//設定アカウント画面のcss
+.user .user-view {
+    background-color: #F6F8F9;
+    border-left: 2px solid #e2e2e2;
+}
+
+.user .user-view-box {
+    max-width: 880px;
+    background-color: #fff;
+    border: 1px solid #eaedef;
+    margin: 30px auto;
+}
+
+.user .update-content {
+    border-bottom: 1px solid #eaedef;
+    padding: 20px;
+    margin: 0 15px;
+    font-size: 16px;
+}
+//ここまで設定アカウント画面のcss
+
+//ルーム登録画面のcss
+.room-new {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.room-new .room-nav-pc {
+  height: 100vh;
+}
+
+.room-new .room-nav {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px 15px;
+}
+
+.room-new .room-nav-pc .active {
+  border-right: 3px solid #4a90e2;
+}
+
+.room-new .room-nav li {
+  font-size: 18px;
+  padding: 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+.room-new .room-view {
+  background-color: #F6F8F9;
+  border-left: 2px solid #e2e2e2;
+}
+
+.room-new .room-view-box {
+  max-width: 880px;
+  background-color: #fff;
+  border: 1px solid #eaedef;
+  margin: 50px auto;
+}
+
+.room-new .update-content {
+  border-bottom: 1px solid #eaedef;
+  padding: 20px;
+  margin: 0 15px;
+  font-size: 16px;
+}
+
+//ルーム予約画面のcss
+.room-show, .reservations-new {
+  padding: 30px 0;
+  }
+  
+  .room-show-image, .reservations-new-image {
+  width: 100%;
+  object-fit: cover;
+  }
+  
+  .room-show-detile, .reservations-new-detile {
+  display: flex;
+  align-items: center;
+  }
+  
+  .room-show-detile-content, .reservations-new-detile-content {
+  font-size: 16px;
+  line-height: 30px;
+  padding: 30px 10px;
+  border-top: 1px solid #eaedef;
+  border-bottom: 1px solid #eaedef;
+  word-break: break-all;
+  }
+  
+  .room-show-nav, .reservations-new-nav {
+  padding: 20px;
+  border: 1px solid #eaedef;
+  }
+  
+  .room-show-date-select, .reservations-new-date-select {
+  padding: 15px 0;
+  }
+  
+  .room-show-date-select label, .reservations-new-date-select label {
+  letter-spacing: 2px;
+  font-size: 14px;
+  }
+  
+  .room-show-detile-icon, .reservations-new-detile-icon {
+  padding: 10px;
+  }
+  
+  .room-show-profile, .reservations-new-profile {
+  padding: 15px;
+  }
+  
+  .room-show-profile-name, .reservations-new-profile-name {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 0;
+  }
+  
+  .room-show-profile-address, .reservations-new-profile-address {
+  font-size: 14px;
+  }
+  //ここまで
+
+  .room-posts-image, .reservations-image {
+    width: 240px;
+    height: 140px;
+    object-fit: cover;
+}
+
+.room-posts, .reservations {
+  max-width: 100vw;
+  padding: 30px 60px;
+}
+
+.room-posts table thead tr, .reservations table thead tr {
+  border-top: 1px solid #eaedef;
+  border-bottom: 1px solid #eaedef;
+}
+
+.room-posts table thead th, .reservations table thead th {
+  padding: 8px 15px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.room-posts table tbody tr, .reservations table tbody tr {
+  border-bottom: 1px solid #eaedef;
+}
+
+.room-posts table tbody td, .reservations table tbody td {
+  padding: 10px;
+}

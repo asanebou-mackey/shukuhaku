@@ -1,0 +1,62 @@
+<div class="container-fiuld user">
+    <div class="row">
+        <div class="col-lg-2 user-nav user-nav-pc d-lg-block d-none">
+    <ul>
+        <li><%= link_to "アカウント",users_path %></li>
+        <li><%= link_to "プロフィール", users_profile_path %></li>
+    </ul>
+</div>
+<div class="col-lg-2 user-nav user-nav-mobile d-lg-none">
+    <ul>
+        <li><%= link_to "アカウント",users_path %></li>
+        <li><%= link_to "プロフィール", users_profile_path %></li>
+    </ul>
+</div>
+        <div class="col-lg-10 user-view">
+            <div class="user-view-box">
+                <div class="update-content">
+                    <div class="row">
+                        <h5>プロフィール</h5>
+                    </div>
+                </div>
+                <%= form_with model: @user do |f| %>
+                    <div class="update-content">
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="icon-box">
+                                    <%= f.label :image ,"アイコン画像" %>
+                                    <img alt="アイコン画像" class="icon-image host-icon" src="/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="update-content">
+                        <div class="row">
+                            <label class="col-md-3 required-a" for="image">アイコン画像</label>
+                            <%= f.file_field :image, class: "mb-4 col-md-9" %>
+                        </div>
+                    </div>
+                    <div class="update-content">
+                        <div class="row">
+                            <%= f.label :name ,"名前" %>
+                            <%= f.text_field :name, class: "form-control mb-4 col-md-9", value: @user.name %>
+                        </div>
+                    </div>
+                    <div class="update-content">
+                        <div class="row">
+                            <%= f.label :introduction ,"自己紹介" %>
+                            <%= f.text_area :introduction, class: "form-control mb-4 col-md-9", value: @user.introduction %>
+                        </div>
+                    </div>
+                    <div class="update-content">
+                        <div class="row">
+                            <ul>
+                                <li><%= f.submit "更新", class: "col-md-2 btn btn-primary mx-3" %></li> <%# form_with引数のインスタンス(@user)が何も情報を持っていない場合、createアクションへ、 情報を持っている場合、updateアクションへ自動的に振り分けてくれます。例えば、newの場合は自動でcreateアクションに振り分けられる。 既に情報を持っているcreateの場合は自動でupdateアクションに振り分けられる。 %>
+                            </ul>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
