@@ -3,10 +3,12 @@ class ReservationsController < ApplicationController
     @reservations = Reservation.where(user_id: current_user.id)
   end
 
-  #def new
-    #@reservation = Reservation.new
-    #@room = Room.find(params[:reservation][:room_id])
-  #end
+  def new
+    @reservation = Reservation.new(reservation_params)
+    @room = Room.find(params[:reservation][:room_id])
+    @totaldays = (@reservation.end - @reservation.start).to_i
+    @totalprice = @totaldays * @room.price * @reservation.number
+  end
 
   def create
     @reservation = Reservation.new(params.require(:reservation).permit(:start, :end, :number, :user_id, :room_id))
@@ -23,11 +25,15 @@ class ReservationsController < ApplicationController
     @totalprice = @totaldays * @room.price * @reservation.number
   end
 
-  def confirm
-    @room = Room.find(params[:reservation][:room_id])
-    @reservation = Reservation.new(params.require(:reservation).permit(:start, :end, :number, :user_id, :room_id))
-    @totaldays = (@reservation.end - @reservation.start).to_i
-    @totalprice = @totaldays * @room.price * @reservation.number
+  #def confirm
+    #@room = Room.find(params[:reservation][:room_id])
+    #@reservation = Reservation.new(params.require(:reservation).permit(:start, :end, :number, :user_id, :room_id))
+    #@totaldays = (@reservation.end - @reservation.start).to_i
+    #@totalprice = @totaldays * @room.price * @reservation.number
+  #end
+
+  def reservation_params
+    params.require(:reservation).permit(:start, :end, :number, :user_id, :room_id)
   end
 
 end

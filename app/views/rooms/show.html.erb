@@ -17,7 +17,7 @@
             <div class="room-show-nav">
                 <h5 class="price-icon"><%= @room.price %> / 日</h5>
                 <div class="room-show-date-select">
-                  <%= form_with model: @reservation,method: :post, url: reservations_confirm_path do |f| %>
+                  <%= form_with model: @reservation,method: :get, url: new_reservation_path do |f| %> <%#method: :post, url: reservations_confirm_path　遷移先がconfirm.html.erbの場合 %>
                     <%= f.label :start ,"開始日" %>
                     <%= f.date_field :start, class: "form-control mb-4" %>
                     <%= f.label :end ,"終了日" %>
