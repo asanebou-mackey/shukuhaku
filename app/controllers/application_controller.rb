@@ -2,6 +2,9 @@ class ApplicationController < ActionController::Base
 
    before_action :configure_permitted_parameters, if: :devise_controller?
    protect_from_forgery with: :exception
+   #ヘッダーに検索機能をつけるために追記
+   before_action :set_search
+   #ここまで
 
    protected
   def configure_permitted_parameters
@@ -19,5 +22,10 @@ class ApplicationController < ActionController::Base
       homes_index_path # ログアウト後に遷移するpathを設定
    end
 
+   #検索機能
+   def set_search
+      @search = Room.ransack(params[:q]) #ransackメソッド推奨
+      @search_rooms = @search.result
+    end
 
 end
