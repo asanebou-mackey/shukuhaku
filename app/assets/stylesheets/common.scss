@@ -375,8 +375,8 @@ ul {
   .room-show-profile-address, .reservations-new-profile-address {
   font-size: 14px;
   }
-  //ここまで
 
+  //予約済みルーム一覧、登録済みルーム一覧画面のcss
   .room-posts-image, .reservations-image {
     width: 240px;
     height: 140px;
@@ -449,7 +449,7 @@ ul {
   letter-spacing: 1px;
 }
 
-
+//バリデーションエラーメッセージのcss
 .error_list {
   color: rgb(242, 232, 232);
 }

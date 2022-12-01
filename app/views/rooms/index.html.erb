@@ -1,5 +1,5 @@
 <div class="container-fiuld reservations">
-    <h4 class="pb-4">予約済みルーム一覧</h4>
+    <h4 class="pb-4">登録済みルーム一覧</h4>
     <table>
         <thead>
             <tr align="center">
@@ -13,8 +13,12 @@
         <tbody>
             <% @rooms.each do |room| %>
             <tr>
-                <td><%= image_tag room.image, class: "room-posts-image" %></td>
-                <td><%= room.name %></td>
+                <td>
+                    <%= link_to room_path(room.id) do  %>
+                        <%= image_tag room.image, class: "room-posts-image" %>
+                    <% end %>
+                </td>
+                <td><%= link_to room.name, room_path(room.id) %></td>
                 <td><%= room.introduce %></td>
                 <td><%= room.price %></td>
                 <td><%= room.created_at %></td>

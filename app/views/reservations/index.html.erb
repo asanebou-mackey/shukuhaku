@@ -15,8 +15,12 @@
         <tbody>
             <% @reservations.each do |reservation| %>
             <tr>
-                <td><%= image_tag reservation.room.image, class: "reservations-image" %></td>
-                <td><%= reservation.room.name %></td>
+                <td>
+                    <%= link_to room_path(reservation.room.id) do %>
+                    <%= image_tag reservation.room.image, class: "reservations-image" %>
+                    <% end %>
+                </td>
+                <td><%= link_to reservation.room.name, room_path(reservation.room.id) %></td>
                 <td><%= reservation.room.introduce %></td>
                 <td><%= reservation.room.price * reservation.number * (reservation.end - reservation.start).to_i %></td>
                 <td><%= reservation.start %></td>

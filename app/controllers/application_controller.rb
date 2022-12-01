@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
    def set_search
       @search = Room.ransack(params[:q]) #ransackメソッド推奨
       @search_rooms = @search.result
+      @numbers = @search_rooms.count
     end
 
 end
