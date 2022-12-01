@@ -25,7 +25,7 @@
                 <td><%= reservation.room.price * reservation.number * (reservation.end - reservation.start).to_i %></td>
                 <td><%= reservation.start %></td>
                 <td><%= reservation.end %></td>
-                <td><%= reservation.created_at %></td>
+                <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
             </tr>
             <% end %>
         </tbody>
