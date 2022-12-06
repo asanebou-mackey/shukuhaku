@@ -18,5 +18,8 @@ module ShukuhakuYoyaku
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.i18n.default_locale = :ja #日本語の言語設定を追記
+    config.time_zone = 'Tokyo' #日本標準時に設定を変更するために追記
   end
 end
